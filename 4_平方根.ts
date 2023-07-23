@@ -23,4 +23,8 @@ export function sqrt(x: number) {
       end = mid - 1;
     }
   }
+
+  return end;
 }
+
+console.log(sqrt(8));
