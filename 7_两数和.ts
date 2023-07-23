@@ -24,5 +24,4 @@ export function twoSum(numbers: number[], target: number): number[] {
 
   return [];
 }
-
 console.log(twoSum([3, 2, 4], 6));
