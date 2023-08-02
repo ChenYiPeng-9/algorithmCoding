@@ -19,6 +19,22 @@ class TreeNode {
 export function isSymmetrical(pRoot: TreeNode): boolean {
   // write code here
 
+  // const traversal = (r1: TreeNode | null, r2: TreeNode | null) => {
+  //   if (!r1 && !r2) {
+  //     return true;
+  //   }
+
+  //   if (!r1 || !r2) {
+  //     return false;
+  //   }
+
+  //   return (
+  //     traversal(r1.left, r2.right) &&
+  //     traversal(r1.right, r2.left) &&
+  //     r1.val === r2.val
+  //   );
+  // };
+
   const traversal = (r1: TreeNode | null, r2: TreeNode | null) => {
     if (!r1 && !r2) {
       return true;
