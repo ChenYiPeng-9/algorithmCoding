@@ -8,18 +8,19 @@
 export function FindGreatestSumOfSubArray(array: number[]): number {
   // write code here
 
-  const len = array.length;
-  const dp = new Array(len);
+  const dp = new Array(array.length);
   dp[0] = array[0];
-  let res = array[0];
+  let max = array[0];
 
-  for (let i = 1; i < len; i++) {
+  for (let i = 1; i < array.length; i++) {
     dp[i] = array[i];
-    if (dp[i - 1] > 0) {
-      dp[i] += dp[i - 1];
+    if (dp[i - 1] >= 0) {
+      dp[i] = dp[i - 1] + dp[i];
     }
-    res = Math.max(res, dp[i]);
+    max = Math.max(max, dp[i]);
   }
 
-  return res;
+  return max;
 }
+
+console.log(FindGreatestSumOfSubArray([1, -2, 3, 10, -4, 7, 2, -5]));

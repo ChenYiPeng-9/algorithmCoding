@@ -8,17 +8,16 @@
 export function maxProfit(prices: number[]): number {
   // write code here
 
-  const len = prices.length;
-  const dp: number[] = new Array(len);
+  const dp = new Array(prices.length);
   dp[0] = 0;
   let min = prices[0];
 
-  for (let i = 1; i < len; i++) {
+  for (let i = 1; i < prices.length; i++) {
     min = Math.min(min, prices[i]);
     dp[i] = Math.max(dp[i - 1], prices[i] - min);
   }
 
-  return dp[len - 1];
+  return dp[prices.length - 1];
 }
 
 console.log(maxProfit([8, 9, 2, 5, 4, 7, 1]));
