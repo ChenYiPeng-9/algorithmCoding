@@ -9,32 +9,31 @@ function ListNode(x) {
  * @return void
  */
 function reorderList(head) {
-  // write code here
-  let nodeArr = [];
-  let curTest = head;
-  while (curTest) {
-    nodeArr.push(curTest);
-    curTest = curTest.next;
+  const nodeListArr = [];
+
+  let cur = head;
+
+  while (cur) {
+    nodeListArr.push(cur);
+    cur = cur.next;
   }
 
-  // console.log(nodeArr);
   let dummyNodeList = new ListNode();
-  let cur = dummyNodeList;
-  let left = 0,
-    right = nodeArr.length - 1;
+  let curNode = dummyNodeList;
+  let left = 0;
+  let right = nodeListArr.length - 1;
 
   while (left <= right) {
-    cur.next = nodeArr[left];
-    cur = cur.next;
+    curNode.next = nodeListArr[left];
+    curNode = curNode.next;
     left++;
 
-    cur.next = nodeArr[right];
-    cur = cur.next;
+    curNode.next = nodeListArr[right];
+    curNode = curNode.next;
     right--;
   }
 
-  cur.next = null;
-  console.log(dummyNodeList, "dummyNodeList");
+  curNode.next = null;
   return dummyNodeList.next;
 }
 module.exports = {
