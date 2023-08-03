@@ -4,7 +4,6 @@ function ListNode(x) {
 }
 
 function FindFirstCommonNode(pHead1, pHead2) {
-  // write code here
   let cur1 = pHead1;
   let cur2 = pHead2;
 
