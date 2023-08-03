@@ -13,22 +13,24 @@ function ListNode(x) {
 function deleteDuplicates(head) {
   // write code here
 
-  if (head === null) {
+  if (!head) {
     return null;
   }
 
   let fast = head,
     slow = head;
 
-  while (fast !== null) {
+  while (fast) {
     if (fast.val !== slow.val) {
       slow.next = fast;
       slow = slow.next;
     }
+
     fast = fast.next;
   }
 
   slow.next = null;
+
   return head;
 }
 module.exports = {
