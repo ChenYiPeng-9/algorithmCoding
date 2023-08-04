@@ -15,25 +15,25 @@ function reverseKGroup(head, k) {
   // write code here
 
   let dummyNodeList = new ListNode();
+  let pre = dummyNodeList;
   dummyNodeList.next = head;
-  let prev = dummyNodeList;
 
   while (head) {
-    let tail = prev;
+    let tail = pre;
+
     for (let i = 0; i < k; i++) {
       tail = tail.next;
-      if (tail === null) {
+      if (!tail) {
         return dummyNodeList.next;
       }
     }
 
     let next = tail.next;
-
     [head, tail] = reverseBetween(head, tail);
-    prev.next = head;
+    pre.next = head;
     tail.next = next;
 
-    prev = tail;
+    pre = tail;
     head = tail.next;
   }
 
@@ -41,13 +41,13 @@ function reverseKGroup(head, k) {
 }
 
 const reverseBetween = (head, tail) => {
-  let prev = tail.next;
+  let pre = null;
   let cur = head;
 
-  while (prev !== tail) {
+  while (pre !== tail) {
     let next = cur.next;
-    cur.next = prev;
-    prev = cur;
+    cur.next = pre;
+    pre = cur;
     cur = next;
   }
 
