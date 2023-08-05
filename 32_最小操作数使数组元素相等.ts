@@ -1,12 +1,13 @@
 function minMoves(nums: number[]): number {
-  const minVal: number = Math.min(...nums);
-  let count: number = 0;
+  const min = Math.min(...nums);
+
+  let res = 0;
 
   for (let i = 0; i < nums.length; i++) {
-    count += nums[i] - minVal;
+    res += nums[i] - min;
   }
 
-  return count;
+  return res;
 }
 
 console.log(minMoves([1, 2, 3]));
