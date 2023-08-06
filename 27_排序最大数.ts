@@ -1,4 +1,4 @@
-const maxArrStr = (arr: Array<number>) => {
+const maxArrStr = (arr: Array<number>): string => {
   arr.sort((a, b) => {
     let val1 = a + "" + b;
     let val2 = b + "" + a;
